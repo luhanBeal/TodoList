@@ -37,4 +37,11 @@ public class TodoItem {
     public void setDeadLine(LocalDate deadLine) {
         this.deadLine = deadLine;
     }
+
+    //override to string to get the short description !!!
+
+    @Override
+    public String toString() {
+        return shortDescription;
+    }
 }
