@@ -41,6 +41,7 @@ public class Controller {
                 if (newValue !=null) {
                     TodoItem item = todoListView.getSelectionModel().getSelectedItem();
                     itemsDetailsTextArea.setText(item.getDetailedDescription());
+                    // we could format the date with the DateTimeFormatter();
                     deadLineLabel.setText(item.getDeadLine().toString());
                 }
             }
