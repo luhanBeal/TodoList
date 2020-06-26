@@ -1,5 +1,6 @@
 package com.luhanbeal.todoList;
 
+import datamodel.TodoData;
 import datamodel.TodoItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -33,6 +34,9 @@ public class Controller {
         todoItems = new ArrayList<TodoItem>();
         todoItems.add(item1);
         todoItems.add(item2);
+
+        //create a file for us
+        TodoData.getInstance().setTodoItems(todoItems);
 
         //Change handler from mouse click to events listener
         todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TodoItem>() {

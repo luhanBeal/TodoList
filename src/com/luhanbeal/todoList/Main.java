@@ -1,10 +1,13 @@
 package com.luhanbeal.todoList;
 
+import datamodel.TodoData;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Main extends Application {
 
@@ -19,5 +22,24 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    //When we stop the app it store the items
+    @Override
+    public void stop() throws Exception {
+        try{
+            TodoData.getInstance().storeTodoItems();
+        } catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public void init() throws Exception {
+        try{
+            TodoData.getInstance().loadToDoItems();
+        } catch(IOException e){
+            System.out.println(e.getMessage());
+        }
     }
 }
