@@ -6,7 +6,6 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 
@@ -41,7 +40,7 @@ public class Controller {
             }
         });
 
-        todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
+        todoListView.setItems(TodoData.getInstance().getTodoItems());
         //set the selection to SINGLE - just one selected at a time
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         //set the first item to start selected as default
@@ -53,6 +52,9 @@ public class Controller {
         //create an instance of a dialog class
         Dialog<ButtonType> dialog = new Dialog<ButtonType>();
         dialog.initOwner(mainBorderPane.getScene().getWindow());
+        //set name of the new box
+        dialog.setTitle("Adicionar nova tarefa");
+        dialog.setHeaderText("Informe novo item para a lista de afazeres");
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("todoItemDialog.fxml"));
         try {
@@ -68,10 +70,9 @@ public class Controller {
             Optional<ButtonType> result = dialog.showAndWait();
             if(result.isPresent() && result.get() == ButtonType.OK) {
                 DialogControler controller = fxmlLoader.getController();
-                controller.processResults();
-                System.out.println("OK pressed");
-            } else {
-                System.out.println("Cancel pressed");
+                TodoItem newItem = controller.processResults();
+                //select the new item after created
+                todoListView.getSelectionModel().select(newItem);
             }
 
     }
@@ -83,4 +84,5 @@ public class Controller {
         itemsDetailsTextArea.setText(item.getDetailedDescription());
         deadLineLabel.setText(item.getDeadLine().toString());
     }
+
 }

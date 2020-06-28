@@ -13,11 +13,11 @@
             xmlns:fx="http://javafx.com/fxml">
     <top>
         <MenuBar>
-            <Menu text="File">
+            <Menu text="Tarefa">
                 <items>
-                    <MenuItem text="New..." onAction="#showNewItemDialog"/>
+                    <MenuItem text="Criar..." onAction="#showNewItemDialog"/>
                     <SeparatorMenuItem/>
-                    <MenuItem text="Exit."/>
+                    <MenuItem text="Sair"/>
                 </items>
             </Menu>
         </MenuBar>
@@ -30,9 +30,9 @@
     </left>
     <center>
         <VBox style="-fx-background-color: white">
-            <TextArea fx:id="itemsDetailsTextArea" VBox.vgrow="ALWAYS"/>
+            <TextArea fx:id="itemsDetailsTextArea" VBox.vgrow="ALWAYS" wrapText="true"/>
             <HBox>
-                <Label text="Due: ">
+                <Label text="Data: ">
                     <font>
                         <Font name="Times New Roman bold" size="18"/>
                     </font>
