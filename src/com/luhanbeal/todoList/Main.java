@@ -1,6 +1,6 @@
 package com.luhanbeal.todoList;
 
-import datamodel.TodoData;
+import com.luhanbeal.todoList.datamodel.TodoData;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

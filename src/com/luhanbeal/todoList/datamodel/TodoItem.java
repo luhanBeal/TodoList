@@ -1,4 +1,4 @@
-package datamodel;
+package com.luhanbeal.todoList.datamodel;
 
 import java.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package datamodel;
+package com.luhanbeal.todoList.datamodel;
 
 import javafx.collections.FXCollections;
 
@@ -29,8 +29,12 @@ public class TodoData {
         formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     }
 
-    public void setTodoItems(List<TodoItem> todoItems) {
-        this.todoItems = todoItems;
+//    public void setTodoItems(List<TodoItem> todoItems) {
+//        this.todoItems = todoItems;
+//    }
+
+    public List<TodoItem> getTodoItems() {
+        return todoItems;
     }
 
     public void loadToDoItems() throws IOException {
