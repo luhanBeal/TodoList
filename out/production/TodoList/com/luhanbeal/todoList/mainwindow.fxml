@@ -9,7 +9,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<BorderPane fx:controller="com.luhanbeal.todoList.Controller"
+<BorderPane fx:id="mainBorderPane" fx:controller="com.luhanbeal.todoList.Controller"
             xmlns:fx="http://javafx.com/fxml">
     <top>
         <MenuBar>

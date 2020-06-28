@@ -5,12 +5,14 @@ import com.luhanbeal.todoList.datamodel.TodoItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextArea;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public class Controller {
 
@@ -21,6 +23,8 @@ public class Controller {
     private TextArea itemsDetailsTextArea;
     @FXML
     private Label deadLineLabel;
+    @FXML
+    private BorderPane mainBorderPane;
 
     public void initialize() {
 
@@ -44,7 +48,30 @@ public class Controller {
         todoListView.getSelectionModel().selectFirst();
     }
 
+    @FXML
+    public void showNewItemDialog() {
+        //create an instance of a dialog class
+        Dialog<ButtonType> dialog = new Dialog<ButtonType>();
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("todoItemDialog.fxml"));
+            dialog.getDialogPane().setContent(root);
+        } catch(IOException e) {
+            System.out.println("Coudn't load the dialog");
+            e.printStackTrace();
+            return;
+        }
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
 
+            Optional<ButtonType> result = dialog.showAndWait();
+            if(result.isPresent() && result.get() == ButtonType.OK) {
+                System.out.println("OK pressed");
+            } else {
+                System.out.println("Cancel pressed");
+            }
+
+    }
 
     @FXML
     public void handleClickListView () {
