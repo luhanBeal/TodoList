@@ -8,3 +8,4 @@ Test to set red color	Test record to check if the items with deadline for today 
 Test tomorrow	test to check items for tomorrow, it should be displayed in a different collor	29-06-2020
 Test future	set the color to black if the task is for the future	01-07-2020
 Test yesterday	Test should be yellow if the task was yesterday	27-06-2020
+testing	this is a new taks to save todo list	11-07-2020

@@ -119,7 +119,7 @@ public class Controller {
         try {
             dialog.getDialogPane().setContent(fxmlLoader.load());
         } catch(IOException e) {
-            System.out.println("Coudn't load the dialog");
+            System.out.println("Couldn't load the dialog");
             e.printStackTrace();
             return;
         }
